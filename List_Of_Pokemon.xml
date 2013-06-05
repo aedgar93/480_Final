@@ -1,0 +1,15 @@
+<doc>
+    <pokemon id="pikachu">
+        <attributes>
+            <level>50</level>
+            <hp>95</hp>
+            <attack>54</attack>
+            <defense>31</defense>
+            <sp_atk>49</sp_atk>
+            <sp_def>40</sp_def>
+            <speed>85</speed>
+        </attributes>
+        <element>electric</element>
+
+    </pokemon>
+<pokemon id="squirtle"><attributes><defence>50</defence><level>50</level><hp>150</hp><attack>50</attack><defense>31</defense><sp_atk>50</sp_atk><sp_def>50</sp_def><speed>50</speed></attributes></pokemon></doc>
