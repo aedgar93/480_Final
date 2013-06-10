@@ -32,9 +32,10 @@ class Attack(object):
             raise Exception("attack does not exist")
         self.name = name
         self.element = attack.find("element").text
+        self.special = attack.find("special").text == "True"
         self.attributes = {}
         for child in attack.find("attributes"):
-            self.attributes[child.tag] = child.text
+            self.attributes[child.tag] = int(child.text)
 
     def __str__(self):
         return self.name+ " " + str(self.attributes)
@@ -54,9 +55,12 @@ class Attack(object):
         temp_pwr.text = str(power)
         temp_acc = ET.SubElement(attributes, "accuracy")
         temp_acc.text = str(accuracy)
-        temp_sp = ET.SubElement(attributes, "special")
+        temp_sp = ET.SubElement(attack, "special")
         temp_sp.text = str(special)
         tree.write(file_name)
+
+#If for some reason the xml gets cleared be sure to create the tackle attack!
+#Attack.create("tackle", "normal", 50, 100);
 
 #Create Pokemon Object
 class Pokemon(object):
@@ -115,6 +119,31 @@ class Pokemon(object):
         elif len(self.attacks) < 4:
             self.attacks.append(attack)
 
+
+    #Self is the attacking pokemon, index is the index of the move used to attack and defending is the pokemon being attacked
+    def attack(self, index, defending):
+        if len(self.attacks) < index:
+            raise Error("Attack not in range")
+        attack = self.attacks[index]
+        #calculate multiplier
+        if defending.element in type_chart[attack.element]:
+            multiplier = type_chart[attack.element][defending.element]
+        else:
+            multiplier = 1
+        if attack.element == self.element:
+            multiplier = multiplier * l.5
+        #time to calculate the damage
+        damage = .4 * self.attributes["level"]+2
+        #if it is a special attack use sp_atk and sp_def
+        if attack.special:
+            damage = damage * self.attributes["sp_atk"]* attack.attributes["power"] / 50 / defending.attributes["sp_def"]
+        else:
+            damage = damage* self.attributes["attack"]* attack.attributes["power"] / 50 / defending.attributes["defense"]
+        #I'm not sure why 2 is added, but it is in the official formula
+        random =  ZZ.random_element(217, 255, "uniform")
+        damage = ((damage +2)*multiplier*random)/255
+        return damage;
+
     #a function that creates the xml outline for a pokemon
     @staticmethod
     def create(name, attributes, element):
@@ -142,13 +171,14 @@ class Pokemon(object):
 
 
 #Attack.create("headbutt", "normal", 100, 100);
+#Attack.create("shock", "electric", 100, 100);
 attributes = {"level": 50,"hp": 150,"attack":50 ,"defense":50,"sp_atk":50, "sp_def":50,"speed":50}
 #Pokemon.create("pikachu", attributes, "electric")
-pika = Pokemon("pikachu",None, ["headbutt", "tackle"])
+pika = Pokemon("pikachu",None, ["headbutt", "shock"])
+
+squirt = Pokemon("pikachu",None, ["headbutt", "shock"])
+print pika.attack(0, squirt)
 
 
-print pika
-
-
-︡971dedb5-b655-467b-ad98-6d417ec3b2f2︡{"stdout":"pikachu {'level': 50, 'hp': 150, 'attack': 50, 'defense': 50, 'sp_atk': 50, 'sp_def': 50, 'speed': 50}\n"}︡
+︡d1593706-4f2e-4f19-bdb3-77b20e8df03c︡{"stdout":"43.1137254901961\n"}︡
 ︠ad47e099-89ac-49a2-b413-e80b8ef0914b︠
