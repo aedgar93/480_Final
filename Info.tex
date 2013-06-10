@@ -35,9 +35,43 @@
         An Attack object represents an attack that a Pokemon may use in battle. Each object must have a name, element, power, and accuracy.
         \subsection{Attack Methods}
         \begin{itemize}
-            \item \textbf{init(self, name)}\\
-            \tab{This method will create a new instance of an item that has already been added to the XML. The name parameter must be a string.}
+            \item \textbf{\_\_init\_\_(self, name)}\\
+            \tab{This method will create a new instance of an Attack that has already been added to the XML. The name parameter must be a string.}
             \item \textbf{create(name, element, power, accuracy, special = False )}\\
             \tab{This method add a new attack to the XML document. Some attacks are considered special attacks and will use the Pokemon's special attack and special defense attributes instead of the standard attack and defense attribute.}
         \end{itemize}
+        \section{Pokemon Class}
+        A Pokemon object represents the Pokemon who will be using the attacks. Each Pokemon must have a name, attributes, element, and attacks. The attributes must include level, hp, attack, defense, sp\_atk, sp\_def, speed. When the Pokemon's element matches the element of an attack used additional damage will be dealt, so be sure the correct element is assigned.
+        \subsection{Pokemon Methods}
+        \begin{itemize}
+        \item \textbf{\_\_init\_\_(self, name, attributes = None, attacks = [Attack("tackle")])}\\
+            \tab{This method will create a new instance of a Pokemon that has already been added to the XML. If attributes are passed in those attributes will be used in place of the XML attributes. Users may have trained their Pokemon differently, so the Pokemon will have non-standard attributes. If no attacks are passed in the default tackle attack will be added. This attack can be overwritten using the add\_attack\_at\_index method.}
+        \item \textbf{add\_attacks(self, attacks)}
+            \tab{Up to 4 attacks will be added to the Pokemon. "attack" must be a list of strings. The method will use the XML to find the attacks. Please always create attacks before adding them to a Pokemon.}
+        \item \textbf{add\_attack\_at\_index(self, position, attack)}
+            \tab{This method overrides the attack at the given index.}
+        \item \textbf{attack(self, index, defending)}
+            \tab{This method is arguably the most important method in the Pokemon class. Self is the attacking Pokemon, position is the index of the attack being used and defending is the Pokemon being attacked. This method will use the same formula to calculate damage as the original game uses. An integer representing the total damage will be returned. }
+        \item \textbf{create(name, attributes, element)}
+            \tab{This method will add the Pokemon information to the XML file. }
+        \end{itemize}
+        \section{Example}
+        This is a simple walkthrough where an attack and 2 Pokemon will be created. One Pokemon will then attack the other and the damage will be noted.
+        \begin{lstlisting}
+            #Create the spark attack in the XML
+            Attack.create("spark", "electric", 65, 100);
+            #set the attributes for Pikachu
+            attributes = {"level": 50,"hp": 150,"attack":50 ,"defense":50,"sp_atk":50, "sp_def":50,"speed":50}
+            #Create Pikachu in the XML file
+            Pokemon.create("pikachu", attributes, "electric")
+            #Pikachu is now avaliable to use, lets make one
+            pika = Pokemon("pikachu",None, ["tackle", "spark"])
+            #Create a squirtle
+            attributes2 = {"level": 50,"hp": 104,"attack":47 ,"defense":65,"sp_atk":49, "sp_def":62,"speed":43}
+            Pokemon.create("squirtle", attributes2, "water")
+            squirt = Pokemon("squirtle",None, ["tackle"])
+            #Have Pikachu attack squirtle with shock and note the results
+            print pika.attack(1, squirt)
+            #When I ran the function 69.17 damage was done. There is a bit of randomness in the formula so your result may vary
+        \end{lstlisting}
         \end{document}

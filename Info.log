@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.25)  10 JUN 2013 10:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.25)  10 JUN 2013 11:44
 entering extended mode
  %&-line parsing enabled.
 **\input Info.tex
@@ -109,7 +109,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 <recently read> \tab 
                      
 l.39             \tab
-                     {This method will create a new instance of an item that...
+                     {This method will create a new instance of an Attack th...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -118,25 +118,90 @@ and I'll forget about whatever was undefined.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Info.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+! Undefined control sequence.
+<recently read> \tab 
+                     
+l.41             \tab
+                     {This method add a new attack to the XML document. Some...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \tab 
+                     
+l.48             \tab
+                     {This method will create a new instance of a Pokemon th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (14.23172pt too wide) in paragraph at lines 47--49
+[][][]\OT1/cmr/bx/n/10 init[][](self, name, at-tributes = None, at-tacks = [At-
+tack("tackle")]) 
+ []
+
+! Undefined control sequence.
+l.50             \tab
+                     {Up to 4 attacks will be added to the Pokemon. "attack"...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.52             \tab
+                     {This method overrides the attack at the given index.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.54             \tab
+                     {This method is arguably the most important method in t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.56             \tab
+                     {This method will add the Pokemon information to the XM...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2] [3] (./Info.aux) ) 
 Here is how much of TeX's memory you used:
- 2041 strings out of 493848
- 28238 string characters out of 1152823
- 109084 words of memory out of 3000000
- 5355 multiletter control sequences out of 15000+50000
- 7895 words of font info for 28 fonts, out of 3000000 for 9000
+ 2096 strings out of 493848
+ 28763 string characters out of 1152823
+ 135084 words of memory out of 3000000
+ 5408 multiletter control sequences out of 15000+50000
+ 8361 words of font info for 30 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 26i,6n,40p,815b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b>
-Output written on Info.pdf (2 pages, 75641 bytes).
+ 26i,6n,40p,815b,1030s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texliv
+e/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmtt9.pfb>
+Output written on Info.pdf (3 pages, 102033 bytes).
 PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,7 +29,7 @@ class Attack(object):
     def __init__(self, name):
         attack = doc.find("attack[@id='"+ name + "']")
         if attack == None:
-            raise Exception("attack does not exist")
+            raise Exception(name+ " attack does not exist")
         self.name = name
         self.element = attack.find("element").text
         self.special = attack.find("special").text == "True"
@@ -131,7 +131,7 @@ class Pokemon(object):
         else:
             multiplier = 1
         if attack.element == self.element:
-            multiplier = multiplier * l.5
+            multiplier = multiplier * 1.5
         #time to calculate the damage
         damage = .4 * self.attributes["level"]+2
         #if it is a special attack use sp_atk and sp_def
@@ -167,18 +167,21 @@ class Pokemon(object):
 
 
 
-
-
-
-#Attack.create("headbutt", "normal", 100, 100);
-#Attack.create("shock", "electric", 100, 100);
+#Create the spark attack in the XML
+#Attack.create("spark", "electric", 65, 100);
+#set the attributes for Pikachu
 attributes = {"level": 50,"hp": 150,"attack":50 ,"defense":50,"sp_atk":50, "sp_def":50,"speed":50}
+#Create Pikachu in the XML file
 #Pokemon.create("pikachu", attributes, "electric")
-pika = Pokemon("pikachu",None, ["headbutt", "shock"])
+#Pikachu is now avaliable to use, lets make one
+pika = Pokemon("pikachu",None, ["tackle", "spark"])
+#Create a squirtle
+attributes2 = {"level": 50,"hp": 104,"attack":47 ,"defense":65,"sp_atk":49, "sp_def":62,"speed":43}
+#Pokemon.create("squirtle", attributes2, "water")
+squirt = Pokemon("squirtle",None, ["tackle"])
+#Have Pikachu attack squirtle with shock and note the results
+print pika.attack(1, squirt)
 
-squirt = Pokemon("pikachu",None, ["headbutt", "shock"])
-print pika.attack(0, squirt)
 
-
-︡d1593706-4f2e-4f19-bdb3-77b20e8df03c︡{"stdout":"43.1137254901961\n"}︡
+︡8e8570b9-6607-474f-a154-2f2b022ba322︡{"stdout":"69.1764705882353\n"}︡
 ︠ad47e099-89ac-49a2-b413-e80b8ef0914b︠
